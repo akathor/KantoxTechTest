@@ -20,28 +20,28 @@ All of these key testing concepts should be outlined in a Master Test Plan docum
 - Every Non-Functional characteristic of quality has been covered for our hypothetical product. This means that we will cover only [Functional Suitability]().
 - Since the Technical Tests only include a specific functionality (Cashier System), we also exclude [Integration]() and [System Tests]() from the reach of this exercise.
 - For the Component Test coverage we will provide some User Stories with their specific Acceptance Criteria to emulate how the Product Managers should define the requirement.
-- We will have Jira tickets with mock ups for each Acceptance Criteria.
+- We will have Jira tickets with mock ups for each User Story.
 - We will use Gherkin as a syntax standard.
 
-### System Requirements Definition
+### Cashier System Requirement Definition
 
 As we mentioned in the Assumptions section, we will start providing a set of User Stories that allows us to create the set of Acceptance Tests.
 
 #### User Story 1:
 As a User  
 I want to be able to select multiple products from a list  
-So I can see the total price of the selected products  
+So I can see the total price of the selected products in Cashier System  
 
 ##### Acceptance Criteria 1.1
 __Feature__: Add products from product list  
 
-*__Scenario 1.1.1__*: Add multiple products to Cashier  
+*__Scenario 1.1.1__*: Add multiple products to Cashier System  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
->_When_ the user selects a multiple products  
->_And_ the user selects multiple quantities for the selected products  
->_Then_ Cashier Systems displays price per unit  
->_And_ Cashier Systems displays price per product type (price x quantity)  
+>_When_ the user selects multiple products one at the time  
+>_Then_ the quantities for the selected products increments with each selection by one (1)  
+>_And_ Cashier Systems displays price per unit by product  
+>_And_ Cashier Systems displays total price by product (price x quantity)  
 >_And_ Cashier System displays total price for all selected products  
 
 ##### Acceptance Criteria 1.2
@@ -53,14 +53,14 @@ __Feature__: Remove Products from a list
 >_And_ the user has created a list of products in Cashier System  
 >_When_ the user deletes a product from the list  
 >_Then_ Cashier System reduces the product quantity by 1 unit (if quantity is not zero)  
->_And_ Cashier Systems updates price per product type (price x new quantity)  
+>_And_ Cashier Systems updates total price by product (price x new quantity)  
 >_And_ Cashier System updates total price for all selected products that remains in list  
 
 *__Scenario 1.2.2__*: Delete products from Cashier List (quantity is zero)  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
 >_And_ the user has created a list of products in Cashier System  
->_When_ the user deletes a product from the list that has quantity = 1  
+>_When_ the user deletes a product from the list that has only one (1) item 
 >_Then_ Cashier System deletes product from list  
 >_And_ Cashier System updates total price for all selected products that remain in list.  
 
@@ -71,51 +71,51 @@ I want to be able to select multiple products from a list that has special rules
 So I can see the total price of the selected products with special rules applied.  
 
 ##### Acceptance Criteria 2.1
-__Feature:__ Apply "Buy x get y free" Rule  
+__Feature:__ Apply "Buy X get Y free" Rule  
 
-*__Scenario 2.1.1__*: Add multiple products to Cashier with "Buy x Get y Free" Rule  
+*__Scenario 2.1.1__*: Add multiple products to Cashier with "Buy X Get Y Free" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
->_When_ the user selects a multiple products that has "Buy x Get y Free" Rule  
->_And_ the user selects multiple quantities for the selected products  
+>_When_ the user selects a multiple products that has "Buy X Get Y Free" Rule  
+>_And_ the user sets multiple quantities for the selected products  
 >_Then_ Cashier Systems displays price per unit  
->_Then_ Cashier Systems duplicates any products that has free products after calculation  
->_Then_ Cashier Systems displays price as zero "0" per unit for each duplicated product  
+>_And_ Cashier Systems displays products with normal price per unit for each X products  
+>_And_ Cashier Systems displays products with zero (0) price per unit for each Y products if applies
 >_And_ Cashier Systems displays price per product type (price x quantity)  
 >_And_ Cashier System displays total price for all selected products  
 
 
 ##### Acceptance Criteria 2.2
-__Feature:__ Apply "Buy > N pay x price per unit" Rule  
+__Feature:__ Apply "Buy > N pay X price per unit" Rule  
 
-*__Scenario 2.2.1__*: Add more than N products to Cashier with "Buy > N pay x price per unit" Rule  
+*__Scenario 2.2.1__*: Add more than N products to Cashier with "Buy > N pay X price per unit" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
->_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule  
->_Then_ Cashier Systems displays price "x" per unit (Applying Rule)  
+>_When_ the user includes more than N products that has "Buy > N pay X price per unit" Rule  
+>_Then_ Cashier Systems displays price X per unit (Applying Rule)  
 >_And_ Cashier Systems displays price per product type (price x quantity)  
 >_And_ Cashier System displays total price for all selected products  
 
 
-*__Scenario 2.2.2__*: Add less than N products to Cashier with "Buy > N pay x price per unit" Rule  
+*__Scenario 2.2.2__*: Add less than N products to Cashier with "Buy > N pay X price per unit" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
 >_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule  
 >_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)  
->_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier Systems displays total price per product (price x quantity)  
 >_And_ Cashier System displays total price for all selected products  
 
 
 ##### Acceptance Criteria 2.3
-__Feature:__ Apply "Buy > N pay x% price per unit" Rule  
+__Feature:__ Apply "Buy > N pay X% price per unit" Rule  
 
-*__Scenario 2.3.1__*: Add more than N products to Cashier with "Buy > N pay x% price per unit" Rule  
+*__Scenario 2.3.1__*: Add more than N products to Cashier with "Buy > N pay X% price per unit" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
->_When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule  
->_Then_ Cashier Systems displays normal price reduced in x% per unit (Applying Rule)  
->_And_ Cashier Systems displays price per product type (price x quantity)  
->_And_ Cashier System displays total price for all selected products
+>_When_ the user selects a more than N products that has "Buy > N pay X% price per unit" Rule  
+>_Then_ Cashier Systems displays normal price reduced in X% per unit (Applying Rule)  
+>_And_ Cashier Systems displays total price per product (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
 
 *__Scenario 2.3.2__*: Add less than N products to Cashier with "Buy > N pay x% price per unit" Rule  
@@ -128,10 +128,10 @@ __Feature:__ Apply "Buy > N pay x% price per unit" Rule
 
 
 ### Test Cases
-Now we will start writing test cases for each Acceptance Criteria previously defined. And also we will add tags to identify which of the following test Cases should be included on which Test cycle. The Test Cycles will be the following:
-- [Regression:]() 
-- [Module:]()
-- [Smoke:]()
+Now we will start writing test cases for each Acceptance Criteria previously defined. Also we will add tags to identify which of the following test Cases should be included on which Test cycle. The Test Cycles will be the following:
+- [Regression:]() Full Coverage for the product. Should be executed on each Product Version increase.
+- [Module (Cashier) :]() Full Coverage for each particular module. Should be executed before merging any change on the module into master branch or Release Candidate Product.
+- [Smoke:]() Ligh coverage over all product. Can be executed in paralel with Module Test Cycle to guarantee the integration coverage before merging changes into a Release Candidate Product.
 
 **Test ID: TC-0001**
 ```
@@ -148,7 +148,7 @@ Steps to execute:
     Step                        Data                Result
     Go to Product List                              Product List is displayed
     Select random product A     Coffee              Product is selected
-    Submit selection                               Cashier list is displayed
+    Submit selection                                Cashier list is displayed
                                 Coffee bag          Product is displayed in Cashier List
                                 Quantity: 1
                                 PpU: £11.23
