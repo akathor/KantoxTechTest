@@ -45,125 +45,82 @@ __Feature__: Add products from product list
 >_And_ Cashier System displays total price for all selected products  
 
 ##### Acceptance Criteria 1.2
-__Feature__: Remove Products from a list
+__Feature__: Remove Products from a list  
+*__Scenario 1.2.1__*: Decrease quantity products from Cashier List (Quantity >=1)  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_And_ the user has created a list of products in Cashier System  
+>_When_ the user deletes a product from the list  
+>_Then_ Cashier System reduces the product quantity by 1 unit (if quantity is not zero)  
+>_And_ Cashier Systems updates price per product type (price x new quantity)  
+>_And_ Cashier System updates total price for all selected products that remains in list  
 
-*__Scenario 1.2.1__*: Decrease quantity products from Cashier List (Quantity >=1)
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_And_ the user has created a list of products in Cashier System
->
->_When_ the user deletes a product from the list
->
->_Then_ Cashier System reduces the product quantity by 1 unit (if quantity is not zero)
->
->_And_ Cashier Systems updates price per product type (price x new quantity)
->
->_And_ Cashier System updates total price for all selected products that remains in list
->
+*__Scenario 1.2.2__*: Delete products from Cashier List (quantity is zero)  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_And_ the user has created a list of products in Cashier System  
+>_When_ the user deletes a product from the list that has quantity = 1  
+>_Then_ Cashier System deletes product from list  
+>_And_ Cashier System updates total price for all selected products that remain in list.  
 
-*__Scenario 1.2.2__*: Delete products from Cashier List (quantity is zero)
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_And_ the user has created a list of products in Cashier System
->
->_When_ the user deletes a product from the list that has quantity = 1
->
->_Then_ Cashier System deletes product from list
->
->_And_ Cashier System updates total price for all selected products that remain in list.
->
+
 #### User Story 2:
-As a User
-I want to be able to select multiple products from a list that has special rules
-So I can see the total price of the selected products with special rules applied.
+As a User  
+I want to be able to select multiple products from a list that has special rules  
+So I can see the total price of the selected products with special rules applied.  
 
 ##### Acceptance Criteria 2.1
-__Feature:__ Apply "Buy x get y free" Rule
+__Feature:__ Apply "Buy x get y free" Rule  
+*__Scenario 2.1.1__*: Add multiple products to Cashier with "Buy x Get y Free" Rule  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a multiple products that has "Buy x Get y Free" Rule  
+>_And_ the user selects multiple quantities for the selected products  
+>_Then_ Cashier Systems displays price per unit  
+>_Then_ Cashier Systems duplicates any products that has free products after calculation  
+>_Then_ Cashier Systems displays price as zero "0" per unit for each duplicated product  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
-*__Scenario 2.1.1__*: Add multiple products to Cashier with "Buy x Get y Free" Rule
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a multiple products that has "Buy x Get y Free" Rule
->
->_And_ the user selects multiple quantities for the selected products
->
->_Then_ Cashier Systems displays price per unit
->
->_Then_ Cashier Systems duplicates any products that has free products after calculation
->
->_Then_ Cashier Systems displays price as zero "0" per unit for each duplicated product
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
->_And_ Cashier System displays total price for all selected products
 
 ##### Acceptance Criteria 2.2
-__Feature:__ Apply "Buy > N pay x price per unit" Rule
-
-*__Scenario 2.2.1__*: Add more than N products to Cashier with "Buy > N pay x price per unit" Rule
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule
->
->_Then_ Cashier Systems displays price "x" per unit (Applying Rule)
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
->_And_ Cashier System displays total price for all selected products
+__Feature:__ Apply "Buy > N pay x price per unit" Rule  
+*__Scenario 2.2.1__*: Add more than N products to Cashier with "Buy > N pay x price per unit" Rule  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule  
+>_Then_ Cashier Systems displays price "x" per unit (Applying Rule)  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
 
-*__Scenario 2.2.2__*: Add less than N products to Cashier with "Buy > N pay x price per unit" Rule
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule
->
->_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
->_And_ Cashier System displays total price for all selected products
+*__Scenario 2.2.2__*: Add less than N products to Cashier with "Buy > N pay x price per unit" Rule  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule  
+>_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
 
 ##### Acceptance Criteria 2.3
-__Feature:__ Apply "Buy > N pay x% price per unit" Rule
-
-
-*__Scenario 2.3.1__*: Add more than N products to Cashier with "Buy > N pay x% price per unit" Rule
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule
->
->_Then_ Cashier Systems displays normal price reduced in x% per unit (Applying Rule)
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
+__Feature:__ Apply "Buy > N pay x% price per unit" Rule  
+*__Scenario 2.3.1__*: Add more than N products to Cashier with "Buy > N pay x% price per unit" Rule  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule  
+>_Then_ Cashier Systems displays normal price reduced in x% per unit (Applying Rule)  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
 >_And_ Cashier System displays total price for all selected products
 
 
-*__Scenario 2.3.2__*: Add less than N products to Cashier with "Buy > N pay x% price per unit" Rule
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule
->
->_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
->_And_ Cashier System displays total price for all selected products
+*__Scenario 2.3.2__*: Add less than N products to Cashier with "Buy > N pay x% price per unit" Rule  
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule  
+>_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
 
 ### Test Cases
