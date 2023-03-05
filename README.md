@@ -178,14 +178,13 @@ Now we will start writing test cases for each Acceptance Criteria previously def
 - [Regression:]() 
 - [Module:]()
 - [Smoke:]()
-- [Acceptance:]()
 
-We will use TC-XX to identify each Test Case Id, AC-YY to identify Acceptance Criteria and SC-ZZZ for Scenarios. i.e.:
 **Test ID: TC-0001**
 ```
 User Story: 1
 Acceptance Criteria: AC-1.1
 Scenario: Sc-1.1.1
+Tag: [Regression] [Cashier]
 Summary: Add simple product to Cashier List
 Pre-conditions:
     - Valid User loged
@@ -207,6 +206,7 @@ Steps to execute:
 User Story: 1
 Acceptance Criteria: AC-1.1
 Scenario: Sc-1.1.1
+Tag: [Regression] [Cashier]
 Summary: Add 1 item for multiple products to Cashier List
 Pre-conditions:
     - Valid User logged
@@ -229,4 +229,41 @@ Steps to execute:
                                 PpP: £0.80
                                 Tot: £12.03
 ```
+
+**Test ID: TC-0003**
+```
+User Story: 1
+Acceptance Criteria: AC-1.1
+Scenario: Sc-1.1.1
+Tag: [Regression] [Cashier]
+Summary: Add n item for one product to Cashier List
+Pre-conditions:
+    - Valid User logged
+    - Product List loaded
+Steps to execute:
+    Step                        Data                Result
+    Go to Product List                              Product List is displayed
+    Select random product A     Coffee              Product is selected
+    Submit selection                                Cashier list is displayed
+                                Coffee bag          Product is displayed in Cashier List
+                                Quantity: 1
+                                PpU: £11.23
+                                PpP: £11.23
+                                Tot: £11.23
+    Select same product          Coffee            Product is selected
+    Submit selection                               Cashier list is displayed
+                                Coffee bag         Product is displayed in Cashier List
+                                Quantity: 2
+                                PpU: £11.23
+                                PpP: £22.46
+                                Tot: £22.46
+    Select same product          Coffee            Product is selected
+    Submit selection                               Cashier list is displayed
+                                Coffee bag         Product is displayed in Cashier List
+                                Quantity: 3
+                                PpU: £11.23
+                                PpP: £33.92
+                                Tot: £33.92
+```
+
 
