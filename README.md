@@ -28,9 +28,9 @@ All of these key testing concepts should be outlined in a Master Test Plan docum
 As we mentioned in the Assumptions section, we will start providing a set of User Stories that allows us to create the set of Acceptance Tests.
 
 #### User Story 1:
-As a User
-I want to be able to select multiple products from a list
-So I can see the total price of the selected products
+As a User  
+I want to be able to select multiple products from a list  
+So I can see the total price of the selected products  
 
 ##### Acceptance Criteria 1.1
 __Feature__: Add products from product list
