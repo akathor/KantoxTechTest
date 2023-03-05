@@ -86,7 +86,7 @@ __Feature:__ Apply "Buy > N pay x price per unit" Rule
 >_Given_ the user is authenticated as a valid user
 _And_ the user can access to the product list
 _When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule
-_Then_ Cashier Systems displays price "x" per unit (Apliying Rule)
+_Then_ Cashier Systems displays price "x" per unit (Applying Rule)
 _And_ Cashier Systems displays price per product type (price x quantity)
 _And_ Cashier System displays total price for all selected products
 
@@ -94,7 +94,7 @@ _And_ Cashier System displays total price for all selected products
 >_Given_ the user is authenticated as a valid user
 _And_ the user can access to the product list
 _When_ the user selects a more than N products that has "Buy > N pay x price per unit" Rule
-_Then_ Cashier Systems displays normal price per unit (Not Apliying Rule)
+_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)
 _And_ Cashier Systems displays price per product type (price x quantity)
 _And_ Cashier System displays total price for all selected products
 
@@ -104,7 +104,7 @@ __Feature:__ Apply "Buy > N pay x% price per unit" Rule
 >_Given_ the user is authenticated as a valid user
 _And_ the user can access to the product list
 _When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule
-_Then_ Cashier Systems displays normal price reduced in x% per unit (Apliying Rule)
+_Then_ Cashier Systems displays normal price reduced in x% per unit (Applying Rule)
 _And_ Cashier Systems displays price per product type (price x quantity)
 _And_ Cashier System displays total price for all selected products
 
@@ -112,19 +112,64 @@ _And_ Cashier System displays total price for all selected products
 >_Given_ the user is authenticated as a valid user
 _And_ the user can access to the product list
 _When_ the user selects a more than N products that has "Buy > N pay x% price per unit" Rule
-_Then_ Cashier Systems displays normal price per unit (Not Apliying Rule)
+_Then_ Cashier Systems displays normal price per unit (Not Applying Rule)
 _And_ Cashier Systems displays price per product type (price x quantity)
 _And_ Cashier System displays total price for all selected products
 
 ### Test Cases
-Now we will start writing test cases for each Acceptance Criteria previouslly defined. And also we will add tags to identify wich of the following test Cases should be included on witch Test cycle. The Test Cycles will be the following:
+Now we will start writing test cases for each Acceptance Criteria previously defined. And also we will add tags to identify which of the following test Cases should be included on which Test cycle. The Test Cycles will be the following:
 - [Regression:]() 
 - [Module:]()
 - [Smoke:]()
 - [Acceptance:]()
 
 We will use TC-XX to identify each Test Case Id, AC-YY to identify Acceptance Criteria and SC-ZZZ for Scenarios. i.e.:
-'''
-- AC-2.1
-  - 
-'''
+**Test ID: TC-0001**
+```
+User Story: 1
+Acceptance Criteria: AC-1.1
+Scenario: Sc-1.1.1
+Summary: Add simple product to Cashier List
+Pre-conditions:
+    - Valid User loged
+    - Product List loaded
+Steps to execute:
+    Step                        Data                Result
+    Go to Product List                              Product List is displayed
+    Select random product A     Coffee              Product is selected
+    Sumbmit selection                               Cashier list is displayed
+                                Coffee bag          Product is displayed in Cashier List
+                                Quantity: 1
+                                PpU: £11.23
+                                PpP: £11.23
+                                Tot: £11.23
+```
+
+**Test ID: TC-0002**
+```
+User Story: 1
+Acceptance Criteria: AC-1.1
+Scenario: Sc-1.1.1
+Summary: Add 1 item for multiple products to Cashier List
+Pre-conditions:
+    - Valid User logged
+    - Product List loaded
+Steps to execute:
+    Step                        Data                Result
+    Go to Product List                              Product List is displayed
+    Select random product A     Coffee              Product is selected
+    Submit selection                               Cashier list is displayed
+                                Coffee bag          Product is displayed in Cashier List
+                                Quantity: 1
+                                PpU: £11.23
+                                PpP: £11.23
+                                Tot: £11.23
+    Select random product B     Apple               Product is selected
+    Submit selection                               Cashier list is displayed
+                                Apple               Product is displayed in Cashier List
+                                Quantity: 1
+                                PpU: £0.80
+                                PpP: £0.80
+                                Tot: £12.03
+```
+
