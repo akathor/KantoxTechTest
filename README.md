@@ -33,9 +33,9 @@ I want to be able to select multiple products from a list
 So I can see the total price of the selected products  
 
 ##### Acceptance Criteria 1.1
-__Feature__: Add products from product list
+__Feature__: Add products from product list  
 
-*__Scenario 1.1.1__*: Add multiple products to Cashier
+*__Scenario 1.1.1__*: Add multiple products to Cashier  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
 >_When_ the user selects a multiple products  
@@ -46,6 +46,7 @@ __Feature__: Add products from product list
 
 ##### Acceptance Criteria 1.2
 __Feature__: Remove Products from a list  
+
 *__Scenario 1.2.1__*: Decrease quantity products from Cashier List (Quantity >=1)  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
@@ -71,6 +72,7 @@ So I can see the total price of the selected products with special rules applied
 
 ##### Acceptance Criteria 2.1
 __Feature:__ Apply "Buy x get y free" Rule  
+
 *__Scenario 2.1.1__*: Add multiple products to Cashier with "Buy x Get y Free" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
@@ -85,6 +87,7 @@ __Feature:__ Apply "Buy x get y free" Rule
 
 ##### Acceptance Criteria 2.2
 __Feature:__ Apply "Buy > N pay x price per unit" Rule  
+
 *__Scenario 2.2.1__*: Add more than N products to Cashier with "Buy > N pay x price per unit" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
@@ -105,6 +108,7 @@ __Feature:__ Apply "Buy > N pay x price per unit" Rule
 
 ##### Acceptance Criteria 2.3
 __Feature:__ Apply "Buy > N pay x% price per unit" Rule  
+
 *__Scenario 2.3.1__*: Add more than N products to Cashier with "Buy > N pay x% price per unit" Rule  
 >_Given_ the user is authenticated as a valid user  
 >_And_ the user can access to the product list  
@@ -133,6 +137,7 @@ Now we will start writing test cases for each Acceptance Criteria previously def
 ```
 User Story: 1
 Acceptance Criteria: AC-1.1
+Feature: Add products from product list
 Scenario: Sc-1.1.1
 Tag: [Regression] [Cashier]
 Summary: Add simple product to Cashier List
@@ -154,6 +159,7 @@ Steps to execute:
 **Test ID: TC-0002**
 ```
 User Story: 1
+Feature: Add products from product list
 Acceptance Criteria: AC-1.1
 Scenario: Sc-1.1.1
 Tag: [Regression] [Cashier]
@@ -183,6 +189,7 @@ Steps to execute:
 **Test ID: TC-0003**
 ```
 User Story: 1
+Feature: Add products from product list
 Acceptance Criteria: AC-1.1
 Scenario: Sc-1.1.1
 Tag: [Regression] [Cashier]
@@ -216,4 +223,134 @@ Steps to execute:
                                 Tot: £33.92
 ```
 
+>In order to make this Technical Test document non-repetitive and easy to read. We will just add the summary for the rest of the test cases...
 
+**Test ID: TC-0004**
+```
+User Story: 1
+Feature: Add products from product list
+Acceptance Criteria: AC-1.1
+Scenario: Sc-1.1.1
+Tag: [Regression] [Cashier] [Smoke]
+Summary: Add n item for multiple products to Cashier List
+```
+
+**Test ID: TC-0005**
+```
+User Story: 1
+Feature: Remove products from product list
+Acceptance Criteria: AC-1.2
+Scenario: Sc-1.2.1
+Tag: [Regression] [Cashier] [Smoke]
+Summary: Decrease 1 item from a product with quantity > 1
+```
+
+**Test ID: TC-0006**
+```
+User Story: 1
+Feature: Remove products from product list
+Acceptance Criteria: AC-1.2
+Scenario: Sc-1.2.2
+Tag: [Regression] [Cashier] [Smoke]
+Summary: Decrease 1 item from a product with quantity = 1
+```
+
+**Test ID: TC-0007**
+```
+User Story: 2
+Feature: Apply “Buy x get y free” Rule
+Acceptance Criteria: AC-2.1
+Scenario: Sc-2.1.1
+Tag: [Regression] [Cashier]
+Summary: Verify that adding X or less products does not trigger “Buy X get Y free”
+```
+
+**Test ID: TC-0008**
+```
+User Story: 2
+Feature: Apply “Buy x get y free” Rule
+Acceptance Criteria: AC-2.1
+Scenario: Sc-2.1.1
+Tag: [Regression] [Cashier] [Smoke]
+Summary: Verify that adding X+1 or more products triggers “Buy X get Y free” only until Y is reached.
+```
+
+**Test ID: TC-0009**
+```
+User Story: 2
+Feature: Apply “Buy x get y free” Rule
+Acceptance Criteria: AC-2.1
+Scenario: Sc-2.1.1
+Tag: [Regression] [Cashier]
+Summary: Verify that adding 2(X+Y) products triggers “Buy X get Y free” 2 times.
+```
+
+**Test ID: TC-0010**
+```
+User Story: 2
+Feature: Apply “Buy x get y free” Rule
+Acceptance Criteria: AC-2.1
+Scenario: Sc-2.1.1
+Tag: [Regression] [Cashier]
+Summary: Verify that adding (X+1) products triggers “Buy X get Y free” but when deleting 1 item the rule stops to apply.
+```
+
+**Test ID: TC-0011**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x price per unit” Rule
+Acceptance Criteria: AC-2.2
+Scenario: Sc-2.2.2
+Tag: [Regression] [Cashier]
+Summary: Verify that adding N products does not triggers “Buy > N pay x price per unit”.
+```
+
+**Test ID: TC-0012**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x price per unit” Rule
+Acceptance Criteria: AC-2.2
+Scenario: Sc-2.2.1
+Tag: [Regression] [Cashier]
+Summary: Verify that adding (N+1) products triggers “Buy > N pay x price per unit”.
+```
+
+**Test ID: TC-0013**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x price per unit” Rule
+Acceptance Criteria: AC-2.2
+Scenario: Sc-2.2.2
+Tag: [Regression] [Cashier]
+Summary: Verify that adding (N+1) products triggers “Buy > N pay x price per unit” but when deleting 1 item the rule stops to apply.
+```
+
+**Test ID: TC-0014**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x% price per unit” Rule
+Acceptance Criteria: AC-2.3
+Scenario: Sc-2.3.2
+Tag: [Regression] [Cashier]
+Summary: Verify that adding N products does not triggers “Buy > N pay x% price per unit”.
+```
+
+**Test ID: TC-0015**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x% price per unit” Rule
+Acceptance Criteria: AC-2.3
+Scenario: Sc-2.3.1
+Tag: [Regression] [Cashier]
+Summary: Verify that adding (N+1) products triggers “Buy > N pay x% price per unit”.
+```
+
+**Test ID: TC-0016**
+```
+User Story: 2
+Feature: Apply “Buy > N pay x% price per unit” Rule
+Acceptance Criteria: AC-2.3
+Scenario: Sc-2.3.2
+Tag: [Regression] [Cashier]
+Summary: Verify that adding (N+1) products triggers “Buy > N pay x% price per unit” but when deleting 1 item the rule stops to apply.
+```
