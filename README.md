@@ -36,20 +36,13 @@ So I can see the total price of the selected products
 __Feature__: Add products from product list
 
 *__Scenario 1.1.1__*: Add multiple products to Cashier
->_Given_ the user is authenticated as a valid user
->
->_And_ the user can access to the product list
->
->_When_ the user selects a multiple products
->
->_And_ the user selects multiple quantities for the selected products
->
->_Then_ Cashier Systems displays price per unit
->
->_And_ Cashier Systems displays price per product type (price x quantity)
->
->_And_ Cashier System displays total price for all selected products
-
+>_Given_ the user is authenticated as a valid user  
+>_And_ the user can access to the product list  
+>_When_ the user selects a multiple products  
+>_And_ the user selects multiple quantities for the selected products  
+>_Then_ Cashier Systems displays price per unit  
+>_And_ Cashier Systems displays price per product type (price x quantity)  
+>_And_ Cashier System displays total price for all selected products  
 
 ##### Acceptance Criteria 1.2
 __Feature__: Remove Products from a list
